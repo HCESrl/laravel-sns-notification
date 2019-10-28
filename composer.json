@@ -1,18 +1,18 @@
 {
-    "name": "laravel-notification-channels/:package_name",
-    "description": ":package_description",
-    "homepage": "https://github.com/laravel-notification-channels/:package_name",
+    "name": "laravel-notification-channels/aws-sns",
+    "description": "AWS SNS Notification Channel for Laravel",
+    "homepage": "https://github.com/laravel-notification-channels/aws-sns",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": ":author_website",
+            "name": "Fabio Savina",
+            "email": "fabio.savina@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": ">=7.2",
+        "aws/aws-sdk-php-laravel": "^3.4",
         "illuminate/notifications": "~5.5 || ~6.0",
         "illuminate/support": "~5.5 || ~6.0"
     },
@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NotificationChannels\\:channel_namespace\\": "src"
+            "NotificationChannels\\Sns\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NotificationChannels\\:channel_namespace\\Test\\": "tests"
+            "NotificationChannels\\Sns\\Test\\": "tests"
         }
     },
     "scripts": {
@@ -35,5 +35,12 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NotificationChannels\\Sns\\SnsServiceProvider"
+            ]
+        }
     }
 }
