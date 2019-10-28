@@ -33,6 +33,10 @@ class SnsChannel
      */
     public function send ( $notifiable, Notification $notification )
     {
+        $message = $notification->toSns ( $notifiable );
+
+        $this->client->publish ( $message->toArray () );
+
         //$response = [a call to the api of your notification send]
 
 //        if ($response->error) { // replace this by the code need to check for errors
